@@ -7,19 +7,47 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <meta name="google-site-verification" content="oxLXitYfHECWMDX9sPaAWebMsLMAjlMYqRKoFTRamy4" />
-    <meta name="description" content="Welcome to Gikundiro Pierrot’s personal portfolio – explore my work, skills, and projects.">
-    <meta name="keywords" content="Gikundiro Pierrot, portfolio, web developer, personal site, HTML, projects">
+    <meta name="description" content="Gikundiro Pierrot is a passionate full-stack web developer from Kigali, Rwanda, specializing in HTML, CSS, JavaScript, Node.js, Express, and database design.">
+    <meta name="keywords" content="Gikundiro Pierrot, portfolio, web developer, full-stack developer, Kigali, Rwanda, HTML, CSS, JavaScript, Node.js, projects">
     <meta name="author" content="Gikundiro Pierrot">
-    <meta property="og:description" content="Explore my personal portfolio website.">
+    <meta property="og:description" content="Explore the portfolio of Gikundiro Pierrot - Full-Stack Web Developer from Kigali, Rwanda.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://murokorepierrot.github.io/">
-    <meta property="og:image" content="https://murokorepierrot.github.io/images/pierrot.jpg">
+    <meta property="og:url" content="https://murokorepierrot.github.io/gikundiro-pierrot-portfolio/">
+    <meta property="og:image" content="https://murokorepierrot.github.io/gikundiro-pierrot-portfolio/images/pierrot.jpg">
     <meta property="og:image:alt" content="A portrait of Gikundiro Pierrot">
+    <meta property="og:title" content="Gikundiro Pierrot - Web Developer Portfolio">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Gikundiro Pierrot - Portfolio">
-    <meta name="twitter:description" content="Welcome to Gikundiro Pierrot’s personal portfolio – explore my work, skills, and projects.">
-    <meta name="twitter:image" content="https://murokorepierrot.github.io/./images/main17.jpg">
+    <meta name="twitter:description" content="Gikundiro Pierrot - Full-Stack Web Developer from Kigali, Rwanda.">
+    <meta name="twitter:image" content="https://murokorepierrot.github.io/gikundiro-pierrot-portfolio/images/main17.jpg">
     <link rel="icon" href="images/main17.jpg" type="images/main17.jpg">
+
+    <!-- JSON-LD Structured Data for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Gikundiro Pierrot",
+      "alternateName": ["Pierrot", "G. Pierrot", "Murokore Pierrot"],
+      "url": "https://murokorepierrot.github.io/gikundiro-pierrot-portfolio/",
+      "image": "https://murokorepierrot.github.io/gikundiro-pierrot-portfolio/images/main17.jpg",
+      "jobTitle": "Full-Stack Web Developer",
+      "description": "Gikundiro Pierrot is a passionate full-stack web developer from Kigali, Rwanda, specializing in HTML, CSS, JavaScript, Node.js, Express, and database design.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kigali",
+        "addressCountry": "Rwanda"
+      },
+      "telephone": "+250780212378",
+      "sameAs": [
+        "https://wa.me/250780212378",
+        "https://www.facebook.com/Gikundiro pierrot",
+        "https://www.instagram.com/murokore pierrot"
+      ],
+      "knowsAbout": ["HTML", "CSS", "JavaScript", "Node.js", "Express", "SQL", "NoSQL", "UI/UX Design", "Figma", "Web Development"]
+    }
+    </script>
+
     <style>
         :root {
             --bg-color: #1a1a1a;
@@ -101,31 +129,147 @@
         @media (max-width: 991px) {
             .controls-container {
                 margin-left: auto;
-                margin-right: 10px;
-                gap: 5px;
+                margin-right: 8px;
+                gap: 4px;
             }
-            .lang-toggle { padding: 3px 8px; font-size: 0.75rem; }
-            .theme-toggle { padding: 3px 8px; font-size: 0.9rem; }
+            .lang-toggle {
+                padding: 3px 9px;
+                font-size: 0.72rem;
+                border-width: 1.5px;
+                min-width: 32px;
+            }
+            .theme-toggle {
+                padding: 3px 8px;
+                font-size: 0.85rem;
+                border-width: 1.5px;
+                min-width: 32px;
+            }
+            .navbar-toggler {
+                padding: 3px 7px;
+                font-size: 0.9rem;
+            }
         }
 
+        /* ============================================================
+           HEADER — Fully responsive on real smartphones
+           ============================================================ */
         .header {
             background: var(--gradient);
             color: #fff;
-            padding: 80px 0;
+            padding: 60px 20px 70px;
             text-align: center;
             border-bottom: 5px solid var(--primary-color);
+            position: relative;
+            overflow: hidden;
         }
-        .header h1 { font-size: 4em; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-        .header p { font-size: 1.5em; }
+
+        .header h1 {
+            font-size: 4em;
+            font-weight: 800;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.35);
+            margin: 0 0 10px;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+            word-break: break-word;
+        }
+
+        .header p {
+            font-size: 1.5em;
+            margin: 0;
+            min-height: 1.6em;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            opacity: 0.95;
+        }
 
         .header-img {
             width: 150px;
             height: 150px;
             object-fit: cover;
+            object-position: center top;
             border-radius: 50%;
             border: 5px solid var(--primary-color);
-            box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
-            margin-bottom: 20px;
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.7),
+                        0 0 60px rgba(0, 210, 255, 0.3);
+            margin: 0 auto 22px;
+            display: block;
+            background: #fff;
+            transition: transform 0.3s ease;
+        }
+
+        .header-img:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 62px;
+            }
+
+            .navbar {
+                padding: 6px 0;
+            }
+            .navbar-brand {
+                font-size: 1rem;
+            }
+
+            .header {
+                padding: 38px 16px 46px;
+                border-bottom-width: 4px;
+            }
+
+            .header h1 {
+                font-size: clamp(1.7rem, 6vw, 2.2rem) !important;
+                font-weight: 800;
+                line-height: 1.15;
+                margin: 0 0 10px;
+                letter-spacing: -0.3px;
+                padding: 0 4px;
+                text-shadow: 1.5px 1.5px 5px rgba(0,0,0,0.35);
+            }
+
+            .header p {
+                font-size: clamp(0.95rem, 3.5vw, 1.15rem) !important;
+                min-height: 1.5em;
+                margin: 0;
+                font-weight: 500;
+                letter-spacing: 0.4px;
+                opacity: 0.95;
+                padding: 0 8px;
+            }
+
+            .header-img {
+                width: clamp(95px, 28vw, 120px) !important;
+                height: clamp(95px, 28vw, 120px) !important;
+                border-width: 4px;
+                margin: 0 auto 16px;
+                box-shadow: 0 0 18px rgba(0, 210, 255, 0.7),
+                            0 0 40px rgba(0, 210, 255, 0.3);
+            }
+        }
+
+        @media (max-width: 380px) {
+            .header {
+                padding: 32px 12px 40px;
+            }
+            .header h1 {
+                font-size: 1.85em;
+            }
+            .header p {
+                font-size: 1em;
+            }
+            .header-img {
+                width: 100px;
+                height: 100px;
+            }
+            .lang-toggle {
+                padding: 2px 7px;
+                font-size: 0.65rem;
+            }
+            .theme-toggle {
+                padding: 2px 6px;
+                font-size: 0.8rem;
+            }
         }
 
         /* --- About Section Desktop --- */
@@ -383,9 +527,9 @@
 
         /* ============================================================
            PROJECTS GRID
-           - Desktop (>= 992px): 3 columns (3 on top, 3 below = 6 cards)
+           - Desktop (>= 992px): 3 columns
            - Tablet (769px - 991px): 2 columns
-           - Mobile (<= 768px): 2 columns (as requested)
+           - Mobile (<= 768px): 2 columns
            ============================================================ */
         .projects-container {
             padding: 80px 15px;
@@ -394,19 +538,17 @@
         }
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             max-width: 1300px;
             margin: 0 auto;
         }
-        /* Tablet: 2 columns */
         @media (max-width: 991px) and (min-width: 769px) {
             .projects-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
             }
         }
-        /* Mobile: 2 columns (as requested) */
         @media (max-width: 768px) {
             .projects-grid {
                 grid-template-columns: repeat(2, 1fr) !important;
@@ -660,8 +802,9 @@
         .ai-chat-footer button:hover { transform: scale(1.1); }
 
         @media (max-width: 768px) {
-            .header { padding: 50px 0; }
-            .header h1 { font-size: 2.5em; }
+            body {
+                padding-top: 62px;
+            }
             .about-text h2 { font-size: 2em; }
             .social-icons a { font-size: 2em; }
             .ai-chat-window { width: 95vw; right: 2.5vw; bottom: 95px; height: 400px; }
@@ -703,7 +846,7 @@
     <header class="header">
         <img src="./images/pierrot.jpg" alt="Gikundiro Pierrot" class="header-img">
         <h1>Gikundiro Pierrot</h1>
-        <p><span id="typed-text"></span></p>
+        <p><span id="typed-text"></span>&nbsp;</p>
     </header>
 
     <!-- About Section -->
@@ -802,7 +945,6 @@
         </div>
     </div>
 
-    <!-- Projects Section (3 columns on desktop, 2 columns on mobile) -->
     <div id="projects" class="projects-container section-animated">
         <h2 class="text-center mb-5" style="color: var(--primary-color); font-size: 2.5rem; font-weight: bold;" data-i18n="projects_title">My Latest Projects</h2>
         <div class="projects-grid">

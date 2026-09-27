@@ -32,7 +32,7 @@
       "url": "https://murokorepierrot.github.io/gikundiro-pierrot-portfolio/",
       "image": "https://murokorepierrot.github.io/gikundiro-pierrot-portfolio/images/main17.jpg",
       "jobTitle": "Full-Stack Web Developer",
-      "description": "Gikundiro Pierrot is a passionate full-stack web developer from Kigali, Rwanda, specializing in HTML, CSS, JavaScript, Node.js, Express, and database design.",
+      "description": "Gikundiro Pierrot is a passionate full-stack web developer from Kigali, Rwanda.",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Kigali",
@@ -151,23 +151,21 @@
         }
 
         /* ============================================================
-           HEADER — Fully responsive on real smartphones
+           HEADER — Passport-style photo (rectangular) + responsive
            ============================================================ */
         .header {
             background: var(--gradient);
             color: #fff;
-            padding: 60px 20px 70px;
+            padding: 70px 20px 80px;
             text-align: center;
             border-bottom: 5px solid var(--primary-color);
-            position: relative;
-            overflow: hidden;
         }
 
         .header h1 {
             font-size: 4em;
             font-weight: 800;
             text-shadow: 2px 2px 6px rgba(0,0,0,0.35);
-            margin: 0 0 10px;
+            margin: 0 0 12px;
             line-height: 1.1;
             letter-spacing: -0.5px;
             word-break: break-word;
@@ -182,23 +180,24 @@
             opacity: 0.95;
         }
 
+        /* Passport-style rectangular photo with rounded corners */
         .header-img {
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 260px;
             object-fit: cover;
             object-position: center top;
-            border-radius: 50%;
+            border-radius: 18px;
             border: 5px solid var(--primary-color);
-            box-shadow: 0 0 25px rgba(0, 210, 255, 0.7),
-                        0 0 60px rgba(0, 210, 255, 0.3);
-            margin: 0 auto 22px;
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.7),
+                        0 0 70px rgba(0, 210, 255, 0.35);
+            margin: 0 auto 24px;
             display: block;
             background: #fff;
             transition: transform 0.3s ease;
         }
 
         .header-img:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         @media (max-width: 768px) {
@@ -213,23 +212,37 @@
                 font-size: 1rem;
             }
 
+            /* Header on phone */
             .header {
-                padding: 38px 16px 46px;
+                padding: 34px 16px 44px;
                 border-bottom-width: 4px;
             }
 
+            /* Passport photo — nicely scaled on mobile */
+            .header-img {
+                width: 140px;
+                height: 180px;
+                border-width: 4px;
+                border-radius: 14px;
+                margin: 0 auto 18px;
+                box-shadow: 0 0 20px rgba(0, 210, 255, 0.7),
+                            0 0 45px rgba(0, 210, 255, 0.3);
+            }
+
+            /* Name — big & bold, never overflows */
             .header h1 {
-                font-size: clamp(1.7rem, 6vw, 2.2rem) !important;
+                font-size: 1.95em;
                 font-weight: 800;
                 line-height: 1.15;
-                margin: 0 0 10px;
+                margin: 0 0 8px;
                 letter-spacing: -0.3px;
                 padding: 0 4px;
                 text-shadow: 1.5px 1.5px 5px rgba(0,0,0,0.35);
             }
 
+            /* Typed subtitle — readable, elegant, non-jumping */
             .header p {
-                font-size: clamp(0.95rem, 3.5vw, 1.15rem) !important;
+                font-size: 1.05em;
                 min-height: 1.5em;
                 margin: 0;
                 font-weight: 500;
@@ -237,30 +250,22 @@
                 opacity: 0.95;
                 padding: 0 8px;
             }
-
-            .header-img {
-                width: clamp(95px, 28vw, 120px) !important;
-                height: clamp(95px, 28vw, 120px) !important;
-                border-width: 4px;
-                margin: 0 auto 16px;
-                box-shadow: 0 0 18px rgba(0, 210, 255, 0.7),
-                            0 0 40px rgba(0, 210, 255, 0.3);
-            }
         }
 
         @media (max-width: 380px) {
             .header {
-                padding: 32px 12px 40px;
-            }
-            .header h1 {
-                font-size: 1.85em;
-            }
-            .header p {
-                font-size: 1em;
+                padding: 28px 12px 38px;
             }
             .header-img {
-                width: 100px;
-                height: 100px;
+                width: 120px;
+                height: 155px;
+                border-radius: 12px;
+            }
+            .header h1 {
+                font-size: 1.7em;
+            }
+            .header p {
+                font-size: 0.95em;
             }
             .lang-toggle {
                 padding: 2px 7px;
@@ -1016,7 +1021,7 @@
             <div class="project-card">
                 <a href="https://murokorepierrot.github.io/marie-rose-shop/" target="_blank" class="project-link">
                     <div class="project-image-container">
-                        <img src="./images/mn.png" alt="Marie Rose Shop">
+                        <img src="./images/marie-rose-banner.jpeg" alt="Marie Rose Shop">
                         <div class="project-overlay">MARIE ROSE SHOP</div>
                     </div>
                 </a>
@@ -1228,7 +1233,7 @@
         }
 
         // ============================================================
-        // KNOWLEDGE BASE ABOUT PIERROT (For Smarter AI)
+        // KNOWLEDGE BASE ABOUT PIERROT
         // ============================================================
         const pierrotKnowledge = [
             { keywords: ['hello', 'hi', 'hey', 'bonjour', 'salut', 'muraho', 'murakaza'], answer: "Hello! 👋 I'm Pierrot's AI assistant. I can tell you everything about Pierrot — his skills, projects, education, contact info, and more. What would you like to know?" },

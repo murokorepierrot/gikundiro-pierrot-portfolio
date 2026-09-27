@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta name="theme-color" content="#1a1a1a">
     <title>Gikundiro Pierrot - Web Developer Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -68,9 +69,14 @@
             --projects-bg: #f8f9fa;
         }
 
-        * { -webkit-tap-highlight-color: transparent; }
+        * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-color);
@@ -78,10 +84,11 @@
             padding-top: 64px;
             transition: background-color 0.4s, color 0.4s;
             overflow-x: hidden;
+            margin: 0;
         }
 
         /* ============================================================
-           NAVBAR — Controls on LEFT, hamburger on RIGHT
+           NAVBAR — Controls left, hamburger right
            ============================================================ */
         .navbar {
             background-color: var(--nav-bg);
@@ -89,39 +96,45 @@
             -webkit-backdrop-filter: blur(12px);
             box-shadow: 0 4px 15px rgba(0,0,0,0.15);
             transition: background-color 0.4s;
-            padding: 10px 14px;
-            min-height: 60px;
+            padding: 8px 12px;
+            min-height: 56px;
+            width: 100%;
+            max-width: 100vw;
         }
         .navbar .container-fluid {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 10px;
+            gap: 8px;
             padding: 0;
             flex-wrap: nowrap;
+            width: 100%;
+            max-width: 100%;
         }
 
-        /* Controls group on the LEFT */
         .controls-container {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             flex-shrink: 0;
+            min-width: 0;
         }
+
         .lang-toggle, .theme-toggle {
             background: none;
             border: 2px solid var(--primary-color);
             color: var(--text-color);
             border-radius: 50px;
-            padding: 4px 12px;
+            padding: 4px 10px;
             cursor: pointer;
-            font-size: 0.82rem;
+            font-size: 0.75rem;
             font-weight: 700;
             transition: all 0.25s ease;
             white-space: nowrap;
-            min-width: 38px;
+            min-width: 34px;
             text-align: center;
             line-height: 1.2;
+            flex-shrink: 0;
         }
         .lang-toggle:hover, .theme-toggle:hover,
         .lang-toggle:active, .theme-toggle:active {
@@ -133,12 +146,11 @@
             color: #fff;
         }
         .theme-toggle {
-            padding: 4px 10px;
-            font-size: 0.95rem;
-            min-width: 38px;
+            padding: 4px 8px;
+            font-size: 0.9rem;
+            min-width: 34px;
         }
 
-        /* Hamburger on the RIGHT */
         .navbar-toggler {
             background: transparent;
             border: 1.5px solid var(--primary-color);
@@ -152,8 +164,8 @@
         .navbar-toggler:focus { box-shadow: 0 0 0 2px rgba(0,210,255,0.4); outline: none; }
         .navbar-toggler-icon {
             background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23f0f0f0' stroke-width='2.5' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-            width: 1.3em;
-            height: 1.3em;
+            width: 1.2em;
+            height: 1.2em;
         }
         body.light-mode .navbar-toggler-icon {
             background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23222' stroke-width='2.5' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
@@ -170,25 +182,10 @@
             color: var(--primary-color) !important;
         }
 
-        /* Real phone adjustments */
+        .navbar-collapse {
+            background-color: transparent;
+        }
         @media (max-width: 991px) {
-            .navbar {
-                padding: 8px 12px;
-                min-height: 56px;
-            }
-            .controls-container { gap: 5px; }
-            .lang-toggle {
-                padding: 4px 10px;
-                font-size: 0.78rem;
-                min-width: 36px;
-                border-width: 1.8px;
-            }
-            .theme-toggle {
-                padding: 4px 9px;
-                font-size: 0.9rem;
-                min-width: 36px;
-                border-width: 1.8px;
-            }
             .navbar-collapse {
                 background-color: var(--nav-bg);
                 backdrop-filter: blur(12px);
@@ -204,12 +201,38 @@
             }
         }
 
-        @media (max-width: 380px) {
-            .navbar { padding: 6px 8px; min-height: 52px; }
+        /* ============================================================
+           EXTRA-SMALL PHONES (<= 420px) — real device fixes
+           ============================================================ */
+        @media (max-width: 420px) {
+            body { padding-top: 56px; }
+            .navbar { padding: 6px 8px; min-height: 50px; }
+            .navbar .container-fluid { gap: 4px; }
             .controls-container { gap: 4px; }
-            .lang-toggle { padding: 3px 7px; font-size: 0.7rem; min-width: 30px; border-width: 1.5px; }
-            .theme-toggle { padding: 3px 7px; font-size: 0.8rem; min-width: 30px; border-width: 1.5px; }
-            .navbar-toggler { padding: 4px 7px; }
+            .lang-toggle {
+                padding: 3px 8px;
+                font-size: 0.7rem;
+                min-width: 32px;
+                border-width: 1.5px;
+            }
+            .theme-toggle {
+                padding: 3px 7px;
+                font-size: 0.85rem;
+                min-width: 32px;
+                border-width: 1.5px;
+            }
+            .navbar-toggler {
+                padding: 4px 7px;
+            }
+            .navbar-toggler-icon {
+                width: 1em;
+                height: 1em;
+            }
+        }
+
+        @media (max-width: 340px) {
+            .lang-toggle { padding: 2px 6px; font-size: 0.65rem; min-width: 28px; }
+            .theme-toggle { padding: 2px 5px; font-size: 0.8rem; min-width: 28px; }
         }
 
         /* ============================================================
@@ -259,8 +282,7 @@
             body { padding-top: 58px; }
             .header { padding: 32px 16px 42px; border-bottom-width: 4px; }
             .header-img {
-                width: 115px;
-                height: 115px;
+                width: 115px; height: 115px;
                 border-width: 4px;
                 margin: 0 auto 16px;
                 box-shadow: 0 0 18px rgba(0, 210, 255, 0.7),
@@ -281,15 +303,35 @@
                 margin: 0;
                 font-weight: 500;
                 letter-spacing: 0.4px;
-                opacity: 0.95;
                 padding: 0 8px;
             }
         }
-        @media (max-width: 380px) {
-            .header { padding: 26px 12px 36px; }
-            .header-img { width: 100px; height: 100px; border-width: 3.5px; }
-            .header h1 { font-size: 1.7em; }
-            .header p { font-size: 0.95em; }
+
+        /* Extra-small phones (<= 420px) */
+        @media (max-width: 420px) {
+            .header { padding: 26px 14px 34px; }
+            .header-img {
+                width: 100px; height: 100px;
+                border-width: 3.5px;
+                margin-bottom: 14px;
+            }
+            .header h1 {
+                font-size: 1.55em;
+                line-height: 1.15;
+                margin-bottom: 6px;
+                padding: 0 6px;
+            }
+            .header p {
+                font-size: 0.92em;
+                padding: 0 10px;
+            }
+        }
+
+        @media (max-width: 340px) {
+            .header { padding: 22px 10px 30px; }
+            .header-img { width: 88px; height: 88px; }
+            .header h1 { font-size: 1.4em; }
+            .header p { font-size: 0.85em; }
         }
 
         /* --- About Section --- */
@@ -298,15 +340,11 @@
             padding: 40px;
             border-radius: 15px;
             box-shadow: var(--shadow);
-            transition: background-color 0.4s;
             margin-bottom: 40px;
         }
         .about-image img {
-            width: 100%;
-            height: auto;
-            max-width: 400px;
-            object-fit: cover;
-            border-radius: 10px;
+            width: 100%; height: auto; max-width: 400px;
+            object-fit: cover; border-radius: 10px;
             border: 7px solid var(--primary-color);
             box-shadow: 0 0 25px rgba(0, 210, 255, 0.5);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -322,17 +360,13 @@
         .progress { height: 25px; background-color: var(--border-color); border-radius: 15px; }
         .progress-bar {
             background: var(--gradient);
-            font-size: 1em;
-            font-weight: bold;
+            font-size: 1em; font-weight: bold;
             transition: width 1.4s ease-out;
         }
 
         @media (max-width: 768px) {
             .about { padding: 18px; margin-bottom: 20px; display: block; }
-            .about-intro-mobile {
-                display: block !important; width: 100% !important;
-                order: 1; margin-bottom: 14px; text-align: left;
-            }
+            .about-intro-mobile { display: block !important; width: 100% !important; order: 1; margin-bottom: 14px; }
             .about-intro-mobile h2 { font-size: 1.5em !important; margin-bottom: 6px; text-align: center; }
             .about-intro-mobile .lead {
                 font-size: 0.85rem !important; line-height: 1.55;
@@ -352,7 +386,7 @@
             .about-softdev-mobile h3 { font-size: 0.95rem !important; margin-bottom: 5px !important; line-height: 1.25; }
             .about-softdev-mobile p { font-size: 0.7rem !important; line-height: 1.45; margin-bottom: 8px !important; }
             .about-softdev-mobile h5 { font-size: 0.8rem !important; margin-bottom: 6px !important; }
-            .about-softdev-mobile strong { font-size: 0.68rem !important; display: block; margin-bottom: 2px; line-height: 1.2; }
+            .about-softdev-mobile strong { font-size: 0.68rem !important; display: block; margin-bottom: 2px; }
             .about-softdev-mobile .progress { height: 12px; margin-bottom: 6px !important; }
             .about-softdev-mobile .progress-bar { font-size: 0.55rem; line-height: 12px; }
             .about-design-mobile { display: block !important; width: 100% !important; }
@@ -365,6 +399,7 @@
             .about-image.col-5, .about-text.col-7 { display: none !important; }
             .about-mobile-layout { display: none; }
         }
+
         .about-mobile-layout { display: block; }
         @media (min-width: 769px) {
             .about-mobile-layout { display: none !important; }
@@ -408,7 +443,6 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px; padding: 60px 40px;
-            background-color: transparent;
         }
         @media (max-width: 768px) {
             .more-info-container {
@@ -429,7 +463,7 @@
             padding: 30px; border-radius: 15px;
             box-shadow: var(--shadow);
             border-left: 5px solid var(--primary-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.4s;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
         }
         .info-box:hover, .info-box:active {
@@ -440,7 +474,6 @@
         .info-box i { margin-right: 15px; color: var(--secondary-color); }
         .info-box p { font-size: 1.1em; line-height: 1.7; }
 
-        /* --- Projects --- */
         .projects-container {
             padding: 80px 15px;
             background-color: var(--projects-bg);
@@ -467,7 +500,7 @@
         }
         .project-card {
             border: none; box-shadow: var(--shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.4s;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             border-radius: 15px; overflow: hidden;
             background-color: var(--card-bg);
         }
@@ -499,7 +532,6 @@
         .qr-section {
             background-color: var(--bg-color);
             padding: 80px 20px; text-align: center;
-            transition: background-color 0.4s;
         }
         .qr-section h2 { font-size: 2.8em; color: var(--primary-color); font-weight: bold; margin-bottom: 15px; }
         .qr-lede {
@@ -518,10 +550,15 @@
             box-shadow: 0 15px 35px rgba(0, 210, 255, 0.6);
         }
         .qr-image { display: block; width: 220px; height: 220px; }
+        @media (max-width: 420px) {
+            .qr-image { width: 180px; height: 180px; }
+            .qr-box { padding: 15px; }
+        }
         .qr-link-text { margin-top: 25px; font-size: 1.1em; }
         .qr-link-text a {
             color: var(--primary-color); text-decoration: none;
             font-weight: bold; transition: color 0.3s ease;
+            word-break: break-all;
         }
         .qr-link-text a:hover { color: yellow; }
         .qr-link-text i { color: var(--secondary-color); margin-right: 8px; }
@@ -529,11 +566,14 @@
         .contact {
             background-color: var(--footer-bg);
             padding: 60px 0; text-align: center;
-            transition: background-color 0.4s;
         }
         .contact h2 { font-size: 3em; color: var(--primary-color); margin-bottom: 30px; font-weight: bold; }
         .contact p { font-size: 1.4em; margin: 10px 0; }
         .contact i { color: var(--primary-color); margin-right: 10px; }
+        @media (max-width: 420px) {
+            .contact h2 { font-size: 2em; }
+            .contact p { font-size: 1.05em; padding: 0 12px; }
+        }
         .social-icons { display: flex; justify-content: center; align-items: center; gap: 30px; margin-top: 20px; }
         .social-icons a {
             font-size: 2.5em; color: var(--text-color);
@@ -541,6 +581,10 @@
             display: inline-block;
         }
         .social-icons a:hover { color: var(--primary-color); transform: translateY(-5px) rotate(5deg); }
+        @media (max-width: 420px) {
+            .social-icons { gap: 22px; }
+            .social-icons a { font-size: 2em; }
+        }
 
         .section-animated {
             opacity: 0; transform: translateY(70px);
@@ -549,10 +593,10 @@
         .section-animated.is-visible { opacity: 1; transform: translateY(0); }
 
         .ai-chat-btn {
-            position: fixed; bottom: 30px; right: 30px;
-            width: 65px; height: 65px; border-radius: 50%;
+            position: fixed; bottom: 24px; right: 20px;
+            width: 58px; height: 58px; border-radius: 50%;
             background: var(--gradient); color: #fff; border: none;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             box-shadow: 0 5px 25px rgba(0, 210, 255, 0.5);
             cursor: pointer; z-index: 9998;
             transition: transform 0.3s, box-shadow 0.3s;
@@ -564,8 +608,9 @@
         }
 
         .ai-chat-window {
-            position: fixed; bottom: 105px; right: 30px;
-            width: 350px; max-width: 90vw; height: 450px;
+            position: fixed; bottom: 92px; right: 20px;
+            width: 340px; max-width: calc(100vw - 24px);
+            height: 440px;
             background: var(--card-bg); border-radius: 20px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             display: none; flex-direction: column;
@@ -578,21 +623,21 @@
 
         .ai-chat-header {
             background: var(--gradient); color: #fff;
-            padding: 15px 20px; font-weight: bold;
+            padding: 14px 18px; font-weight: bold;
             display: flex; justify-content: space-between;
-            align-items: center; font-size: 1.2rem;
+            align-items: center; font-size: 1.05rem;
         }
         .ai-chat-header .close-chat {
             background: none; border: none; color: #fff;
-            font-size: 1.5rem; cursor: pointer;
+            font-size: 1.4rem; cursor: pointer;
         }
         .ai-chat-body {
-            flex: 1; padding: 15px; overflow-y: auto;
+            flex: 1; padding: 14px; overflow-y: auto;
             display: flex; flex-direction: column; gap: 10px;
         }
         .ai-msg {
-            max-width: 80%; padding: 10px 15px;
-            border-radius: 15px; font-size: 0.95rem;
+            max-width: 82%; padding: 10px 14px;
+            border-radius: 15px; font-size: 0.9rem;
             line-height: 1.4; word-wrap: break-word;
         }
         .ai-msg.bot {
@@ -613,29 +658,30 @@
             border: 1px solid var(--border-color);
             border-radius: 50px; background: var(--bg-color);
             color: var(--text-color); outline: none;
+            font-size: 0.9rem;
         }
         .ai-chat-footer button {
             background: var(--gradient); border: none;
-            color: #fff; width: 45px; height: 45px;
-            border-radius: 50%; margin-left: 10px;
+            color: #fff; width: 42px; height: 42px;
+            border-radius: 50%; margin-left: 8px;
             cursor: pointer; transition: transform 0.2s;
         }
         .ai-chat-footer button:hover { transform: scale(1.1); }
 
-        @media (max-width: 768px) {
-            body { padding-top: 58px; }
-            .about-text h2 { font-size: 2em; }
-            .social-icons a { font-size: 2em; }
-            .ai-chat-window { width: 95vw; right: 2.5vw; bottom: 95px; height: 400px; }
-            .ai-chat-btn { width: 55px; height: 55px; font-size: 1.5rem; bottom: 20px; right: 20px; }
+        @media (max-width: 420px) {
+            .ai-chat-btn { width: 52px; height: 52px; font-size: 1.4rem; bottom: 18px; right: 16px; }
+            .ai-chat-window {
+                width: calc(100vw - 16px);
+                right: 8px;
+                bottom: 82px;
+                height: 62vh;
+                max-height: 460px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- ============================================================
-         NAVBAR — Language buttons on LEFT, hamburger on RIGHT
-         ============================================================ -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container-fluid">
             <div class="controls-container">
@@ -1049,18 +1095,18 @@
             { keywords: ['advanto', 'tour', 'travel'], answer: "PIERROT ADVANTO is a travel and tour website. Visit: https://afasapro.github.io/tour/" },
             { keywords: ['fitnesxia', 'fitness'], answer: "PIERROT FITNESXIA is a fitness brand website. Visit: https://afasapro.github.io/fitness/" },
             { keywords: ['marie rose', 'marie-rose', 'grocery', 'jabana', 'pwa'], answer: "MARIE ROSE SHOP is a real business PWA for a grocery store in Jabana, Kigali. Visit: https://murokorepierrot.github.io/marie-rose-shop/" },
-            { keywords: ['project', 'projects', 'work', 'portfolio', 'imishinga'], answer: "Pierrot has built:\n1. Pierrot Movie Hub\n2. Pierrot Chic & Modern\n3. Pierrot Gourmet Getaway\n4. Shoes Online Store\n5. Pierrot Advanto\n6. Pierrot Fitnesxia\n7. Marie Rose Shop\nSee them in the Projects section!" },
-            { keywords: ['philosophy', 'filozofiya', 'believe'], answer: "Pierrot believes the best code is elegant, easy to maintain, and follows best practices. Development is a craft requiring technical precision and creative problem-solving." },
+            { keywords: ['project', 'projects', 'work', 'portfolio', 'imishinga'], answer: "Pierrot has built:\n1. Pierrot Movie Hub\n2. Pierrot Chic & Modern\n3. Pierrot Gourmet Getaway\n4. Shoes Online Store\n5. Pierrot Advanto\n6. Pierrot Fitnesxia\n7. Marie Rose Shop" },
+            { keywords: ['philosophy', 'filozofiya', 'believe'], answer: "Pierrot believes the best code is elegant, easy to maintain, and follows best practices." },
             { keywords: ['contact', 'phone', 'call', 'whatsapp', 'reach', 'twandikire'], answer: "You can reach Pierrot directly:\n📞 Phone: +250 780212378\n💬 WhatsApp: https://wa.me/250780212378\n📘 Facebook: Gikundiro Pierrot\n📷 Instagram: @murokore pierrot" },
             { keywords: ['hire', 'work with', 'available', 'freelance', 'akazi'], answer: "Yes! Pierrot is available for freelance and full-time opportunities. Reach out via WhatsApp at +250 780212378." },
             { keywords: ['price', 'cost', 'rate', 'igiciro', 'prix'], answer: "Pricing depends on the project scope. Contact Pierrot on WhatsApp at +250 780212378 for a quote." },
-            { keywords: ['service', 'services', 'offer'], answer: "Pierrot offers:\n• Full-stack web development\n• Frontend (HTML, CSS, JavaScript)\n• Backend (Node.js, Express)\n• Database design (SQL & NoSQL)\n• UI/UX design with Figma\n• Progressive Web Apps (PWAs)" },
+            { keywords: ['service', 'services', 'offer'], answer: "Pierrot offers:\n• Full-stack web development\n• Frontend (HTML, CSS, JavaScript)\n• Backend (Node.js, Express)\n• Database design\n• UI/UX design with Figma\n• Progressive Web Apps (PWAs)" },
             { keywords: ['website', 'build me', 'make me'], answer: "Pierrot would love to help you build a website! Message him on WhatsApp at +250 780212378." },
             { keywords: ['language', 'languages', 'kinyarwanda', 'français'], answer: "This portfolio is available in 3 languages: English (EN), French (FR), and Kinyarwanda (RW)." },
             { keywords: ['qr', 'qr code', 'scan'], answer: "The QR code lets you quickly open the Marie Rose Shop project on your phone! 📱" },
             { keywords: ['thank', 'merci', 'murakoze'], answer: "You're very welcome! 😊" },
             { keywords: ['bye', 'goodbye', 'au revoir', 'murabeho'], answer: "Goodbye! Reach out via WhatsApp at +250 780212378 if you need anything! 👋" },
-            { keywords: ['help', 'what can you do'], answer: "I can tell you about Pierrot's:\n• Skills & technologies\n• Projects\n• Education & background\n• Contact info\n• Philosophy & achievements\n• Services he offers" }
+            { keywords: ['help', 'what can you do'], answer: "I can tell you about Pierrot's:\n• Skills & technologies\n• Projects\n• Education & background\n• Contact info\n• Services he offers" }
         ];
 
         const fallbackResponse = "While I don't have the specific answer to that right now, you can call or WhatsApp Pierrot directly at +250 780212378, Pierrot is always happy to help you.";

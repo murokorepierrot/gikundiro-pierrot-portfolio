@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://murokorepierrot.github.io/gikundiro-pierrot-portfolio/sitemap.xml
